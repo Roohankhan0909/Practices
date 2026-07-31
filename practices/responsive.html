@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind css Responsive navbar</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <nav
+      class="flex justify-between items-center bg-white h-16 text-grey-900 px-6 py-4 shadow-lg"
+    >
+      <div>
+        <h1 class="text-lg md:text-2xl lg:text-3xl font-bold tracking-wide">
+          Roohan khan
+        </h1>
+      </div>
+      <div
+        class="hidden md:block lg:block md:text-lg lg:text-xl flex space-x-6 font-medium text-sm"
+      >
+        <a class="hover:text-blue-500 transition-colors" href="#Home">Home</a>
+        <a class="hover:text-blue-500 transition-colors" href="#About">About</a>
+        <a class="hover:text-blue-500 transition-colors" href="#Contact"
+          >Contact</a
+        >
+      </div>
+      <button class="md:hidden text-2xl" id="menu-btn">&#9776;</button>
+    </nav>
+  </body>
+</html>
