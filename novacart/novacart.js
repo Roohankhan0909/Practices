@@ -11,6 +11,7 @@ ShopNowBtn.addEventListener("click", () => {
 });
 let cartCount = 0;
 
-cart.addEventListener("click", () => {
+addToCartButton.addEventListener("click", () => {
   cartCount = cartCount + 1;
+  cartDisplay.textContent = cartCount;
 });
