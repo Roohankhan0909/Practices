@@ -15,3 +15,7 @@ addToCartButton.addEventListener("click", () => {
   cartCount = cartCount + 1;
   cartDisplay.textContent = cartCount;
 });
+history.pushState(null, null, location.href);
+window.onpopstate = function () {
+  history.go(1);
+};
