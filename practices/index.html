@@ -204,5 +204,48 @@
         </li>
       </ul>
     </main>
+
+    <script>
+      const input = document.querySelector(".new-task input");
+      const addButton = document.querySelector(".new-task button");
+      const tasks = document.querySelector(".tasks");
+      const count = document.querySelector(".count");
+
+      function updateCount() {
+        const total = tasks.children.length;
+        count.textContent = `${total} task${total === 1 ? "" : "s"}`;
+      }
+
+      function addTask() {
+        const text = input.value.trim();
+        if (!text) return;
+
+        const id = `task-${Date.now()}`;
+        const task = document.createElement("li");
+        task.className = "task";
+        task.innerHTML = `
+          <div class="task-left">
+            <input type="checkbox" id="${id}" />
+            <label for="${id}"></label>
+          </div>
+          <span class="tag work">Work</span>
+        `;
+        task.querySelector("label").textContent = text;
+        tasks.appendChild(task);
+        input.value = "";
+        input.focus();
+        updateCount();
+      }
+
+      addButton.addEventListener("click", addTask);
+      input.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") addTask();
+      });
+      tasks.addEventListener("change", (event) => {
+        if (event.target.matches('input[type="checkbox"]')) {
+          event.target.closest(".task").classList.toggle("done", event.target.checked);
+        }
+      });
+    </script>
   </body>
 </html>
